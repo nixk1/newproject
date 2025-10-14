@@ -1,0 +1,1 @@
+export const jwtsecret="12534";
