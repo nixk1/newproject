@@ -1,6 +1,6 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import { jwtsecreat } from "./config";
+import { jwtsecret } from "@repo/backend-common/config";
 import { middleware } from "./middleware";
 const app=express();
 
@@ -11,7 +11,7 @@ app.post("/signup",(req,res)=>{
 
 app.post("/singin",(req,res)=>{
    const userid=1;
-   const token=jwt.sign({userid},jwtsecreat)
+   const token=jwt.sign({userid},jwtsecret)
    res.json({
     token
    })
