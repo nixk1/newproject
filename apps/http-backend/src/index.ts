@@ -4,7 +4,6 @@ import { jwtsecret } from "@repo/backend-common/config";
 import { middleware } from "./middleware";
 import {CreatUserSchema, SigninSchema, CreatRoomSchema} from "@repo/common/types"
 import {prismaClient} from "@repo/db/client"
-import { email } from "zod";
 const app=express();
 
 
@@ -27,7 +26,7 @@ app.post("/signup",async (req,res)=>{
         })
         res.json(
             {
-                "userid": user._id,
+                "userid": user.id,
             }
             
         )
@@ -71,7 +70,7 @@ const parsedata = CreatRoomSchema.safeParse(req.body);
             msg: "room Schema doesn't matched"
         });
     }
-
+    //@ts-ignore
     const userid = req.userId;
 
     try {
