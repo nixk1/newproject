@@ -1,1 +1,0 @@
-export const jwtsecreat="12534";
