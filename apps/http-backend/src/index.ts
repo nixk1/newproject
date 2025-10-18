@@ -77,7 +77,7 @@ const parsedata = CreatRoomSchema.safeParse(req.body);
         const room = await prismaClient.room.create({
         data:{
             slug: parsedata.data.name,
-            adminId: userid
+            admindId: userid
         }
     })
     res.json(
@@ -93,7 +93,7 @@ app.get("/chats/:roomId",async (req,res)=>{
   const roomId=Number(req.params.roomId);
   const message=await prismaClient.chat.findMany({
     where:{
-      roomId:roomId,
+      RoomId:roomId,
     },
     orderBy:{
       id:"desc"
