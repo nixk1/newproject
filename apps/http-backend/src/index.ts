@@ -18,6 +18,7 @@ app.post("/signup",async (req,res)=>{
 
     try {
        const user =  await prismaClient.user.create({
+        //@ts-ignore
             data : {
                     email: parsedata.data.username,
                     name : parsedata.data.name,
